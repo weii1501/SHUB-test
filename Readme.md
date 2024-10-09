@@ -41,7 +41,7 @@ NODE_ENV=dev
 ## Running the Application
 1. Chạy ứng dụng
 ```bash
-yarn **start**
+yarn start
 ```
 2. chạy ứng dụng với môi trường dev
 ```bash

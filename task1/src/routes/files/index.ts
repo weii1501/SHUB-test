@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express";
 import MessageHandle from "../../utils/MessageHandle";
 import { uploadFile } from "../../utils/Upload";
-import { readExcelFile } from "../../utils/XlsxHandler";
 import { query } from "express-validator";
 import { validationErrorHandler } from "../../middlewares/validationErrorHandler";
 import FileController from "../../controllers/file.controller";

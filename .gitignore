@@ -40,4 +40,4 @@ yarn-error.log*
 
 *.txt
 
-storage/*
+storage/files/*

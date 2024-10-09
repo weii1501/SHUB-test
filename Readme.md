@@ -30,20 +30,26 @@ yarn install
 ```
 
 ## Environment Variables
-Ứng dụng đang sử dụng phụ thuộc vào các biến môi trường (file .env):
-- PORT: chỉ định port mà server sẽ sử dụng (mặc định là 3000)
-- NODE_ENV: đó là một biến môi trường chỉ định cho "Node Environment"
+Ứng dụng đang sử dụng phụ thuộc vào các biến môi trường (file ***.env***):
+- **PORT**: chỉ định port mà server sẽ sử dụng (mặc định là 3000).
+- **NODE_ENV**: đó là một biến môi trường chỉ định cho "Node Environment".
+- Trong task này tôi dùng cloudinary làm nơi lưu trữ các file báo cáo bao gồm: **CLOUDINARY_CLOUD_NAME**, **CLOUDINARY_API_KEY**, **CLOUDINARY_API_SECRET**
+- Bạn có thể copy file ***.env*** này để có thể tiện cho việc kiểm tra các api.
 ```env
 PORT=3000
 NODE_ENV=dev
+
+CLOUDINARY_CLOUD_NAME=dln7sory6
+CLOUDINARY_API_KEY=512186482526577
+CLOUDINARY_API_SECRET=AXDRhRBMdfjb5BxevMVg_QfWlqw
 ```
 
 ## Running the Application
-1. Chạy ứng dụng
+1. Chạy ứng dụng:
 ```bash
 yarn start
 ```
-2. chạy ứng dụng với môi trường dev
+2. Chạy ứng dụng với môi trường dev:
 ```bash
 yarn dev
 ```
@@ -82,9 +88,10 @@ docker-compose down
 - `.dockerignore`: Lists the files and directories to be ignored when building the Docker image. -->
 
 ## DEMO
+Bạn có thể import file postman để kiểm tra các api mà tôi đã xây dựng: ***./task1/SHUB.postman_collection.json***
 ### Yêu cầu 1: 
 Upload file: client upload .xlsx file:
-- Api: Upload file: client upload .xlsx file
+- Api: http://localhost:3000/v1/api/files/
 - Trường hợp 1: khi client gửi request thành công
 ![Trường hợp 1](./task1/docs/images/api1_task1_1.png)
 - Trường hợp 2: khi client gửi request không đính kèm file
@@ -97,7 +104,7 @@ Upload file: client upload .xlsx file:
 Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả về kết quả dựa theo file gần nhất người dùng upload:
 
 - Api: http://localhost:3000/v1/api/files/
-- các query trong api (định dạng 'dd/MM/yyyy HH:mm:ss'): **start** và **end**
+- các query trong api (định dạng ***'dd/MM/yyyy HH:mm:ss'***): **start** và **end**
 - Trường hợp 1: Không có **start** và **end** -> lấy về tất cả dữ liệu trong file report
 ![Trường hợp 1](./task1/docs/images/api2_task1_1.png)
 - Trường hợp 2: có **start** và **end** -> lấy về tất cả dữ liệu trong file report bắt đầu bằng **start** và kết thúc bằng **end**
@@ -111,7 +118,7 @@ Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả
 ![Trường hợp 5.2](./task1/docs/images/api2_task1_5.2.png)
 
 
-# TASK 2
+# TASK 3
 Ở trong task này, tôi sử dụng Postgresql để thiết kế cơ sở dữ liệu.
 ### Thực thể (Entities):
 
@@ -153,6 +160,7 @@ Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả
 - Mỗi **Trụ bơm** liên kết với một **Trạm xăng** và một **Hàng hoá**.
 - Mỗi **Trụ bơm** có thể có nhiều **Giao dịch** (1 - n).
 - **Giao dịch** liên kết với **Trụ bơm**, từ đó liên kết đến **Trạm xăng** và **Hàng hoá** tương ứng.
+- Một **Trạm xăng** có nhiều hàng hóa **Hàng hoá**, một **Hàng hoá** có thể được bán ở nhiều **Trạm xăng** (n - n)
 
 
 ### Sơ đồ ER (Entity Relationship Diagram) mô tả các bảng và mối quan hệ giữa chúng:
@@ -160,7 +168,7 @@ Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả
 ### Toàn bộ các lệnh SQL cho thiết kế cơ sở dữ liệu:
 ***Đường dẫn***: task2/create_database.sql
 
-# TASK 3
+# TASK 4
 Ở task này tôi sử dụng Nodejs, axios để tiến hành GET và POST dữ liệu từ api cho trước. 
 ## Chuẩn bị
 

@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "7282f9ad-a19e-4c02-ac5c-09948a5f115b",
+		"name": "SHUB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24762029",
+		"_collection_link": "https://www.postman.com/planetary-shadow-32052/shub/collection/hq5o7sx/shub?action=share&source=collection_link&creator=24762029"
+	},
+	"item": [
+		{
+			"name": "upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/vodacluc/Downloads/đề bài test_report.xlsx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/api/files/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"files",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/vodacluc/Downloads/đề bài test_report.xlsx",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/api/files/?start=21/03/2024 20:57:24&end=21/03/2024 21:10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"files",
+						""
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "21/03/2024 20:57:24"
+						},
+						{
+							"key": "end",
+							"value": "21/03/2024 21:10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-all-file",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/vodacluc/Downloads/đề bài test_report.xlsx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/api/files/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"api",
+						"files",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

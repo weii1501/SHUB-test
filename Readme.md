@@ -112,6 +112,7 @@ Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả
 
 
 # TASK 2
+Ở trong task này, tôi sử dụng Postgresql để thiết kế cơ sở dữ liệu.
 ### Thực thể (Entities):
 
 1. **Trạm xăng**
@@ -158,5 +159,36 @@ Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả
 ![Sơ đồ ERD](./task2/docs/images/erd.png)
 ### Toàn bộ các lệnh SQL cho thiết kế cơ sở dữ liệu:
 ***Đường dẫn***: task2/create_database.sql
+
+# TASK 3
+Ở task này tôi sử dụng Nodejs, axios để tiến hành GET và POST dữ liệu từ api cho trước. 
+## Chuẩn bị
+
+- Node.js, Typescript
+- Yarn hoặc npm
+
+## Cài đặt và khởi chạy
+
+- Từ thư mục gốc, di chuyển vào thư mục ***task3***:
+    ```bash
+    cd task3
+    ```
+- Dùng  ***yarn*** hoặc ***npm*** để cài đặt các gói thư viện:
+    ```bash
+    yarn
+    ```
+    hoặc:
+    ```bash
+    npm install
+    ```
+- Dùng  ***yarn*** hoặc ***npm*** để khởi chạy chương trình:
+    ```bash
+    yarn start
+    ```
+    hoặc:
+    ```bash
+    npm run start
+    ```
+
 
 

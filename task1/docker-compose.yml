@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "7979:7979"
+    command: yarn start
+    environment:
+      - NODE_ENV=dev
+      - PORT=7979

@@ -164,7 +164,7 @@ Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả
 
 
 ### Sơ đồ ER (Entity Relationship Diagram) mô tả các bảng và mối quan hệ giữa chúng:
-![Sơ đồ ERD](./task2/docs/images/erd.png)
+![Sơ đồ ERD](./task3/docs/images/erd.png)
 ### Toàn bộ các lệnh SQL cho thiết kế cơ sở dữ liệu:
 ***Đường dẫn***: task2/create_database.sql
 
@@ -179,7 +179,7 @@ Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả
 
 - Từ thư mục gốc, di chuyển vào thư mục ***task3***:
     ```bash
-    cd task3
+    cd task4
     ```
 - Dùng  ***yarn*** hoặc ***npm*** để cài đặt các gói thư viện:
     ```bash
@@ -198,7 +198,7 @@ Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả
     npm run start
     ```
 - Kết quả khi chạy chương trình:
-![Kết quả](./task3/docs/images/result.png)
+![Kết quả](./task4/docs/images/result.png)
 
 
 

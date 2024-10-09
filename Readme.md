@@ -189,6 +189,8 @@ Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả
     ```bash
     npm run start
     ```
+- Kết quả khi chạy chương trình:
+![Kết quả](./task3/docs/images/result.png)
 
 
 

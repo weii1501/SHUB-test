@@ -143,6 +143,9 @@ Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả
    - `TransactionID` (Khóa chính)
    - Ngày giờ (`DateTime`)
    - `PumpID` (Khóa ngoại tham chiếu đến Trụ bơm)
+   - `StationID` (Khóa ngoại tham chiếu Trạm xăng)
+   - `GoodsID` (Khóa ngoại tham chiêu Hàng hóa)
+   
    - Số lượng (`Quantity`)
    - Đơn giá (`UnitPrice`)
    - Giá trị giao dịch (`TotalValue`)

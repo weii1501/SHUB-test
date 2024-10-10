@@ -1,5 +1,8 @@
 const axios = require("axios");
 
+const SUM_QUERY = "1";
+const ALTERNATING_SUM_QUERY = "2";
+
 async function getInputData() {
   try {
     const response = await axios.get(
@@ -12,49 +15,64 @@ async function getInputData() {
   }
 }
 
-class SumQueryProcessor {
-  process(data, range) {
-    const [l, r] = range;
-    return data.slice(l, r + 1).reduce((sum, value) => sum + value, 0);
-  }
-}
-
-class AlternatingSumQueryProcessor {
-  process(data, range) {
-    const [l, r] = range;
-    return data
-      .slice(l, r + 1)
-      .reduce(
-        (sum, value, index) => sum + (index % 2 === 0 ? value : -value),
-        0
-      );
-  }
-}
-
-class QueryProcessorFactory {
-  createQueryProcessor(type) {
-    switch (type) {
-      case "1":
-        return new SumQueryProcessor();
-      case "2":
-        return new AlternatingSumQueryProcessor();
-      default:
-        throw new Error("Invalid query type");
-    }
-  }
-}
-
 function processQueries(data, queries) {
   const results = [];
-  const factory = new QueryProcessorFactory();
-
   for (const query of queries) {
     const { type, range } = query;
-    const processor = factory.createQueryProcessor(type);
-    const result = processor.process(data, range);
-    results.push(result);
-  }
+    const [l, r] = range;
 
+    if (type === SUM_QUERY) {
+      let sum1 = 0;
+      let left = l;
+      let right = r;
+
+      while (left <= right) {
+        if (left !== right) {
+          sum1 += data[left] + data[right];
+        } else if (left === right) {
+          sum1 += data[left];
+        }
+
+        left++;
+        right--;
+      }
+      results.push(sum1);
+    } else if (type === ALTERNATING_SUM_QUERY) {
+      let sum = 0;
+      let left = l;
+      let right = r;
+      let indexLeft = 0;
+      let indexRight = r-l;
+
+      while (left <= right) {
+        if (left !== right) {
+          if (indexLeft % 2 === 0) {
+            sum += data[left];
+          } else {
+            sum -= data[left];
+          }
+
+          if (indexRight % 2 === 0) {
+            sum += data[right];
+          } else {
+            sum -= data[right];
+          }
+        } else if (left === right) {
+          if (indexLeft % 2 === 0) {
+            sum += data[left];
+          } else {
+            sum -= data[left];
+          }
+        }
+
+        left++;
+        indexLeft++;
+        right--;
+        indexRight--;
+      }
+      results.push(sum);
+    }
+  }
   return results;
 }
 
@@ -92,3 +110,4 @@ async function app() {
 }
 
 app();
+

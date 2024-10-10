@@ -28,12 +28,9 @@ export interface ExcelDataInterface {
 
 
 export const readExcelFile = async (url: string): Promise<ExcelDataInterface[]> => {
-    const response = await axios.get(url, {
-        responseType: 'arraybuffer', // Để xử lý dữ liệu nhị phân
-    });
 
     const workbook = new ExcelJS.Workbook();
-    await workbook.xlsx.load(response.data);
+    await workbook.xlsx.readFile(url);
     const data: { [key: string]: any }[] = [];
     workbook.eachSheet((worksheet, sheetId) => {
         console.log(`Sheet ID: ${sheetId}, Sheet Name: ${worksheet.name}`);

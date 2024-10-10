@@ -33,15 +33,9 @@ yarn install
 Ứng dụng đang sử dụng phụ thuộc vào các biến môi trường (file ***.env***):
 - **PORT**: chỉ định port mà server sẽ sử dụng (mặc định là 3000).
 - **NODE_ENV**: đó là một biến môi trường chỉ định cho "Node Environment".
-- Trong task này tôi dùng cloudinary làm nơi lưu trữ các file báo cáo bao gồm: **CLOUDINARY_CLOUD_NAME**, **CLOUDINARY_API_KEY**, **CLOUDINARY_API_SECRET**
-- Bạn có thể copy file ***.env*** này để có thể tiện cho việc kiểm tra các api.
 ```env
 PORT=3000
 NODE_ENV=dev
-
-CLOUDINARY_CLOUD_NAME=dln7sory6
-CLOUDINARY_API_KEY=512186482526577
-CLOUDINARY_API_SECRET=AXDRhRBMdfjb5BxevMVg_QfWlqw
 ```
 
 ## Running the Application
@@ -91,19 +85,19 @@ docker-compose down
 Bạn có thể import file postman để kiểm tra các api mà tôi đã xây dựng: ***./task1/SHUB.postman_collection.json***
 ### Yêu cầu 1: 
 Upload file: client upload .xlsx file:
-- Api: http://localhost:3000/v1/api/files/
+- Api: http://localhost:3000/v1/api/files/upload/
 - Trường hợp 1: khi client gửi request thành công
-![Trường hợp 1](./task1/docs/images/api1_task1_1.png)
-- Trường hợp 2: khi client gửi request không đính kèm file
-![Trường hợp 2](./task1/docs/images/api1_task1_2.png)
-- Trường hợp 3: khi client gửi request sai định dạnh file
-![Trường hợp 3](./task1/docs/images/api1_task1_3.png)
+![Trường hợp 1](./task1/docs/images/api1_task1_3.png)
+- Trường hợp 2: khi client gửi request có file không đúng phần mở rộng:
+![Trường hợp 2](./task1/docs/images/api1_task1_1.png)
+- Trường hợp 3: khi client gửi request có file không phải là định dạng ***.xlsx*** nhưng được đổi đuôi thành ***.xlsx***
+![Trường hợp 3](./task1/docs/images/api1_task1_2.png)
 
 ### Yêu cầu 2: 
 
 Truy vấn: Client truyền (giờ bắt đầu) - (giờ kết thúc) và trả về kết quả dựa theo file gần nhất người dùng upload:
 
-- Api: http://localhost:3000/v1/api/files/
+- Api: http://localhost:3000/v1/api/files/get-data
 - các query trong api (định dạng ***'dd/MM/yyyy HH:mm:ss'***): **start** và **end**
 - Trường hợp 1: Không có **start** và **end** -> lấy về tất cả dữ liệu trong file report
 ![Trường hợp 1](./task1/docs/images/api2_task1_1.png)

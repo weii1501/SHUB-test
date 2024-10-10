@@ -40,18 +40,24 @@ CREATE TABLE Transactions (
     TransactionID SERIAL PRIMARY KEY,
     DateTime TIMESTAMP NOT NULL,
     PumpID INT NOT NULL,
+    StationID INT NOT NULL,
+	GoodsID INT NOT NULL,
     Quantity DECIMAL(10,2) NOT NULL,
     UnitPrice DECIMAL(10,2) NOT NULL,
     TotalValue DECIMAL(10,2) NOT NULL,
     createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (PumpID) REFERENCES Pumps(PumpID)
+    FOREIGN KEY (PumpID) REFERENCES Pumps(PumpID),
+    FOREIGN KEY (StationID) REFERENCES GasStations(StationID),
+	FOREIGN KEY (GoodsID) REFERENCES Goods(GoodsID)
 );
 
 -- Tạo các chỉ mục để cải thiện hiệu suất
 CREATE INDEX idx_pumps_stationid ON Pumps(StationID);
 CREATE INDEX idx_pumps_goodsid ON Pumps(GoodsID);
 CREATE INDEX idx_transactions_pumpid ON Transactions(PumpID);
+CREATE INDEX idx_transactions_stationid ON Transactions(StationID);
+CREATE INDEX idx_transactions_goodsid ON Transactions(GoodsID);
 
 -- Tạo hàm cập nhật updatedAt tự động
 CREATE OR REPLACE FUNCTION update_updatedAt_column()
